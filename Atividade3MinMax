@@ -1,0 +1,46 @@
+# grafo
+# By YatoCiks
+
+# inicialização
+
+def inicializar_matriz():
+    for i in range(vertice):
+         nova_linha = []
+         for i in range(vertice):
+             nova_linha.append(0)
+         grafo.append(nova_linha)
+
+def mostrar_grafo():
+    for i in range(vertice):
+        print(grafo[i])
+
+def adicionar_aresta(linha, coluna):
+    grafo[linha - 1][coluna - 1] = 1
+    grafo[coluna - 1][linha - 1] = 1
+
+def grau_minmax():
+    graus = []
+    for i in range(vertice):
+        grau = 0
+        for j in range(vertice):
+            grau += grafo[i][j]
+        graus.append(grau)
+    graus.sort()
+    min = graus[0]
+    max = graus[-1]
+    print(F'grau minimo: {min}')
+    print(F'grau maximo: {max}')
+
+
+# inicio
+grafo = []
+vertice = int(input("digite quantidade de vertices"))
+
+# testes
+inicializar_matriz()
+adicionar_aresta(1, 2)
+adicionar_aresta(1, 4)
+adicionar_aresta(1, 3)
+adicionar_aresta(3, 2)
+mostrar_grafo()
+grau_minmax()
