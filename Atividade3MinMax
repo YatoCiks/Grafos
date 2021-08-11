@@ -1,5 +1,4 @@
 # grafo
-# By YatoCiks
 
 # inicialização
 
@@ -18,22 +17,27 @@ def adicionar_aresta(linha, coluna):
     grafo[linha - 1][coluna - 1] = 1
     grafo[coluna - 1][linha - 1] = 1
 
-def grau_minmax():
-    graus = []
+def grau():
     for i in range(vertice):
         grau = 0
         for j in range(vertice):
             grau += grafo[i][j]
         graus.append(grau)
     graus.sort()
+
+def grau_min():
     min = graus[0]
-    max = graus[-1]
     print(F'grau minimo: {min}')
+
+
+def grau_max():
+    max = graus[-1]
     print(F'grau maximo: {max}')
 
 
 # inicio
 grafo = []
+graus = []
 vertice = int(input("digite quantidade de vertices"))
 
 # testes
@@ -42,5 +46,7 @@ adicionar_aresta(1, 2)
 adicionar_aresta(1, 4)
 adicionar_aresta(1, 3)
 adicionar_aresta(3, 2)
+grau()
 mostrar_grafo()
-grau_minmax()
+grau_min()
+grau_max()
